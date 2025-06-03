@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet"href="shopping.css">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+.product {
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.cart {
+    margin: 20px;
+    border-top: 2px solid #000;
+    padding-top: 10px;
+}
+</style>
+<body>
+    <!--Greeting area, populated from cookie-->
+    <h1 id="greeting">Welcome!</h1>
+
+    <!--font selector saved to sessionStorage-->
+    <label for="fontSelector">Choose font:</label>
+    <select id="font-Selector">
+     <option value="Arial">Arial</option>
+     <option value="Times New Roman">Times New Roman</option>
+     <option value="Courier New">Courier New</option>
+    </select>
+    </div>
+    <div>
+
+
+        <!--shipping method preference saved in cookie-->
+        <label>Select shipping method:</label>
+        <select id="shippingSelector" onchage="setCartPrefrence()">
+            <option value="Standard">Standard</option>
+            <option value="Express">Express</option>
+            <option value="Pickup">Pickup</option>
+        </select>
+    </div>
+
+
+    <!--Display current cart preference from cookie-->
+    <div>
+        <p>currency: <span id="currencyDisplay">$</span></p>
+        <p> Shipping Method:<span id="shippingDisplay">Standard</span></p>
+    </div>
+    <!--Product catalog section-->
+    <div id="catalog">
+        <h2>Product Catalog</h2>
+        <div class="product" data-name="Product 1" data-price="20">
+            <p>Name: Product 1</p>
+            <p>Price: $20</p>
+            <button onclick="addToCart('Product 1',20)">Add to Cart</button>
+        </div>
+    </div>
+
+    <!-- shopping cart section-->
+     <div class="cart">
+        <h2>Shopping Cart</h2>
+        <div id="cartItems">Your cart is empty.</div>
+        <p>Total: $<span id="totalPrice">0</span></p>
+        <button onclick="clearCart()">Clear Cart</button>
+        <button onclick="resetPreferences()">Rest Preferences</button>
+     </div>
+
+     <!-- cache information notice-->
+      <p id="cacheInfo"> Cached resources are being used for faster loading.</p>
+    <script src="shoppingCart.js"></script>
+</body>
+</html>
